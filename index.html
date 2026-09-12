@@ -745,7 +745,42 @@ body.dark .badge{
     </div>
 
 </div>
+<!-- DAYS CALCULATOR -->
 
+<div class="card tool calculator">
+
+    <div class="icon">📅</div>
+
+    <h2>Days Calculator</h2>
+
+    <p>
+        Calculate the number of days between two dates.
+    </p>
+
+    <input
+        id="startDate"
+        type="date">
+
+    <input
+        id="endDate"
+        type="date">
+
+    <button onclick="calculateDays()">
+        Calculate Days
+    </button>
+
+    <button
+        class="clear"
+        onclick="clearFields(['startDate','endDate'],'daysResult')">
+        Clear
+    </button>
+
+    <div
+        class="result"
+        id="daysResult">
+    </div>
+
+</div>
         <!-- AGE -->
 
         <div class="card tool utility">
@@ -1075,6 +1110,34 @@ function percentage(){
 /* =========================
    CGPA
 ========================= */
+function calculateDays(){
+
+    let start =
+        new Date(document.getElementById("startDate").value);
+
+    let end =
+        new Date(document.getElementById("endDate").value);
+
+    if(isNaN(start) || isNaN(end)){
+
+        document.getElementById("daysResult")
+        .innerText =
+        "Please select both dates.";
+
+        return;
+    }
+
+    let difference =
+        Math.abs(end - start);
+
+    let days =
+        Math.ceil(difference / (1000 * 60 * 60 * 24));
+
+    document.getElementById("daysResult")
+    .innerText =
+        "Days Between: " + days;
+
+}
 function calculateSalary(){
 
     let monthly =
