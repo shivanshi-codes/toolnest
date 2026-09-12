@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ToolNest - Free Online Student Tools</title>
+
+<meta name="description"
+content="ToolNest offers free online calculators and productivity tools for students including percentage, CGPA, marks, age, word counter and study timer.">
+
+<meta name="keywords"
+content="percentage calculator, CGPA calculator, marks calculator, age calculator, word counter, study timer, student tools">
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f5f7fb;
+    color:#171717;
+    transition:.3s;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:white;
+    height:70px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+}
+
+.logo span{
+    font-size:13px;
+    color:#777;
+    margin-left:5px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    margin-left:25px;
+    font-size:15px;
+}
+
+nav a:hover{
+    color:#000;
+}
+
+.dark-button{
+    margin-left:20px;
+    width:auto;
+    padding:9px 13px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:white;
+    text-align:center;
+    padding:80px 20px 70px;
+}
+
+.badge{
+    display:inline-block;
+    background:#f0f2f5;
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    max-width:800px;
+    margin:auto;
+    line-height:1.15;
+}
+
+.hero h1 span{
+    text-decoration:underline;
+}
+
+.hero p{
+    max-width:650px;
+    margin:20px auto;
+    color:#666;
+    line-height:1.7;
+    font-size:18px;
+}
+
+.explore{
+    display:inline-block;
+    margin-top:15px;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    padding:14px 25px;
+    border-radius:9px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area{
+    width:86%;
+    max-width:800px;
+    margin:35px auto;
+    text-align:center;
+}
+
+.search-area input{
+    width:100%;
+    padding:16px 20px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:86%;
+    max-width:1150px;
+    margin:60px auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:12px;
+    font-size:32px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:35px;
+}
+
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.categories{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.category{
+    width:auto;
+    background:white;
+    color:#333;
+    border:1px solid #ddd;
+    padding:9px 17px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.category.active{
+    background:#111;
+    color:white;
+}
+
+
+/* =========================
+   TOOLS GRID
+========================= */
+
+.tools{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.card h2{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:18px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+textarea{
+    height:130px;
+    resize:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+}
+
+button:hover{
+    opacity:.85;
+}
+
+.result{
+    margin-top:12px;
+    padding:12px;
+    background:#f1f3f7;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+    min-height:20px;
+}
+
+.clear{
+    margin-top:8px;
+    background:#e9ebef;
+    color:#222;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:white;
+    padding:70px 10%;
+    text-align:center;
+}
+
+.about h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.about p{
+    max-width:750px;
+    margin:auto;
+    color:#666;
+    line-height:1.8;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    padding:70px 10%;
+}
+
+.faq-box{
+    max-width:800px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.faq-box h3{
+    margin-bottom:8px;
+}
+
+.faq-box p{
+    color:#666;
+    line-height:1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+footer p{
+    margin:8px;
+    color:#ccc;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark{
+    background:#101114;
+    color:#eee;
+}
+
+body.dark header,
+body.dark .hero,
+body.dark .card,
+body.dark .about,
+body.dark .faq-box,
+body.dark .search-area input,
+body.dark .category{
+    background:#1a1c20;
+    color:#eee;
+}
+
+body.dark nav a{
+    color:#ddd;
+}
+
+body.dark .hero p,
+body.dark .card p,
+body.dark .about p,
+body.dark .section-subtitle,
+body.dark .faq-box p{
+    color:#aaa;
+}
+
+body.dark input,
+body.dark textarea{
+    background:#24272c;
+    color:white;
+    border-color:#444;
+}
+
+body.dark .result{
+    background:#24272c;
+}
+
+body.dark .clear{
+    background:#333;
+    color:white;
+}
+
+body.dark .badge{
+    background:#292c31;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .tools{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:0 5%;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        padding:60px 18px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .container{
+        width:92%;
+    }
+
+    .tools{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:27px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        ToolNest
+        <span>India</span>
+    </div>
+
+    <nav>
+
+        <a href="#tools">Tools</a>
+
+        <a href="#about">About</a>
+
+        <a href="#faq">FAQ</a>
+
+        <button
+            class="dark-button"
+            onclick="toggleDark()"
+            id="darkBtn">
+            🌙
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        ✨ Free Online Tools
+    </div>
+
+    <h1>
+        Useful Tools for
+        <span>Students</span>
+    </h1>
+
+    <p>
+        Calculate, study and work smarter with simple
+        free online tools. No registration required.
+    </p>
+
+    <a href="#tools" class="explore">
+        Explore Tools ↓
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-area">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="🔎 Search a tool..."
+        onkeyup="searchTools()">
+
+</div>
+
+
+
+<!-- =========================
+     TOOLS
+========================= -->
+
+<div class="container" id="tools">
+
+    <h2 class="section-title">
+        Popular Tools
+    </h2>
+
+    <p class="section-subtitle">
+        Simple tools for everyday student needs
+    </p>
+
+
+    <div class="categories">
+
+        <button
+            class="category active"
+            onclick="filterTools('all',this)">
+            All
+        </button>
+
+        <button
+            class="category"
+            onclick="filterTools('calculator',this)">
+            🧮 Calculators
+        </button>
+
+        <button
+            class="category"
+            onclick="filterTools('study',this)">
+            📚 Study
+        </button>
+
+        <button
+            class="category"
+            onclick="filterTools('utility',this)">
+            🛠️ Utility
+        </button>
+
+    </div>
+
+
+
+    <div class="tools" id="toolGrid">
+
+
+
+        <!-- PERCENTAGE -->
+
+        <div class="card tool calculator">
+
+            <div class="icon">🧮</div>
+
+            <h2>Percentage Calculator</h2>
+
+            <p>
+                Calculate percentage from obtained and total marks.
+            </p>
+
+            <input
+                id="obtained"
+                type="number"
+                placeholder="Obtained Marks">
+
+            <input
+                id="total"
+                type="number"
+                placeholder="Total Marks">
+
+            <button onclick="percentage()">
+                Calculate
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearFields(['obtained','total'],'percentageResult')">
+                Clear
+            </button>
+
+            <div
+                class="result"
+                id="percentageResult">
+            </div>
+
+        </div>
+
+
+
+        <!-- CGPA -->
+
+        <div class="card tool calculator">
+
+            <div class="icon">🎓</div>
+
+            <h2>CGPA Calculator</h2>
+
+            <p>
+                Convert CGPA into percentage.
+            </p>
+
+            <input
+                id="cgpa"
+                type="number"
+                step="0.01"
+                placeholder="Enter CGPA">
+
+            <button onclick="calculateCGPA()">
+                Calculate
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearFields(['cgpa'],'cgpaResult')">
+                Clear
+            </button>
+
+            <div
+                class="result"
+                id="cgpaResult">
+            </div>
+
+        </div>
+
+
+
+        <!-- MARKS -->
+
+        <div class="card tool calculator">
+
+            <div class="icon">📊</div>
+
+            <h2>Marks Calculator</h2>
+
+            <p>
+                Calculate total and average marks.
+            </p>
+
+            <input
+                id="marks"
+                placeholder="Example: 70,80,65,90">
+
+            <button onclick="calculateMarks()">
+                Calculate
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearFields(['marks'],'marksResult')">
+                Clear
+            </button>
+
+            <div
+                class="result"
+                id="marksResult">
+            </div>
+
+        </div>
+
+
+
+        <!-- AGE -->
+
+        <div class="card tool utility">
+
+            <div class="icon">🎂</div>
+
+            <h2>Age Calculator</h2>
+
+            <p>
+                Calculate your current age.
+            </p>
+
+            <input
+                id="dob"
+                type="date">
+
+            <button onclick="calculateAge()">
+                Calculate Age
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearFields(['dob'],'ageResult')">
+                Clear
+            </button>
+
+            <div
+                class="result"
+                id="ageResult">
+            </div>
+
+        </div>
+
+
+
+        <!-- WORD COUNTER -->
+
+        <div class="card tool utility">
+
+            <div class="icon">📝</div>
+
+            <h2>Word Counter</h2>
+
+            <p>
+                Count words and characters in your text.
+            </p>
+
+            <textarea
+                id="text"
+                placeholder="Type or paste your text...">
+            </textarea>
+
+            <button onclick="countWords()">
+                Count Words
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearFields(['text'],'wordResult')">
+                Clear
+            </button>
+
+            <div
+                class="result"
+                id="wordResult">
+            </div>
+
+        </div>
+
+
+
+        <!-- STUDY TIMER -->
+
+        <div class="card tool study">
+
+            <div class="icon">⏱️</div>
+
+            <h2>Study Timer</h2>
+
+            <p>
+                Focus with a simple 25-minute study session.
+            </p>
+
+            <div
+                class="result"
+                id="timer">
+                25:00
+            </div>
+
+            <br>
+
+            <button onclick="startTimer()">
+                Start Timer
+            </button>
+
+            <button
+                class="clear"
+                onclick="resetTimer()">
+                Reset
+            </button>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+    class="about"
+    id="about">
+
+    <h2>About ToolNest</h2>
+
+    <p>
+        ToolNest is a free online utility website created
+        to make everyday calculations and productivity tasks
+        easier for students and general users.
+        Our tools are simple, fast and easy to use.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section
+    class="faq"
+    id="faq">
+
+    <h2 class="section-title">
+        Frequently Asked Questions
+    </h2>
+
+
+    <div class="faq-box">
+
+        <h3>
+            Is ToolNest free to use?
+        </h3>
+
+        <p>
+            Yes. ToolNest tools are designed to be free
+            and easy to use.
+        </p>
+
+    </div>
+
+
+    <div class="faq-box">
+
+        <h3>
+            Do I need to create an account?
+        </h3>
+
+        <p>
+            No registration is required for these tools.
+        </p>
+
+    </div>
+
+
+    <div class="faq-box">
+
+        <h3>
+            Who can use ToolNest?
+        </h3>
+
+        <p>
+            Students, professionals and anyone who needs
+            quick everyday calculations can use ToolNest.
+        </p>
+
+    </div>
+
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="about" id="contact">
+
+    <h2>Contact ToolNest</h2>
+
+    <p>
+        Have a question, suggestion or feedback?
+        We would love to hear from you.
+    </p>
+
+    <p>
+        Email: support@toolnest.in
+    </p>
+
+</section>
+
+
+<!-- =========================
+     PRIVACY
+========================= -->
+
+<section class="about" id="privacy">
+
+    <h2>Privacy Policy</h2>
+
+    <p>
+        ToolNest respects your privacy. Our basic calculator
+        and productivity tools work directly in your browser.
+        We do not require users to create an account to use
+        these tools.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     TERMS
+========================= -->
+
+<section class="about" id="terms">
+
+    <h2>Terms & Conditions</h2>
+
+    <p>
+        ToolNest provides online tools for general informational
+        and productivity purposes. Users should verify important
+        calculations and information before making decisions.
+    </p>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer> 
+    
+<footer>
+
+    <h3>ToolNest India</h3>
+
+    <p>
+        Simple tools. Better productivity.
+    </p>
+
+    <p>
+        <a href="#about" style="color:white;">
+            About
+        </a>
+        &nbsp; | &nbsp;
+
+        <a href="#contact" style="color:white;">
+            Contact
+        </a>
+        &nbsp; | &nbsp;
+
+        <a href="#privacy" style="color:white;">
+            Privacy Policy
+        </a>
+        &nbsp; | &nbsp;
+
+        <a href="#terms" style="color:white;">
+            Terms
+        </a>
+    </p>
+
+    <p>
+        © 2026 ToolNest. All Rights Reserved.
+    </p>
+
+</footer>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   PERCENTAGE
+========================= */
+
+function percentage(){
+
+    let obtained =
+        Number(document.getElementById("obtained").value);
+
+    let total =
+        Number(document.getElementById("total").value);
+
+    if(
+        obtained === 0 ||
+        total === 0 ||
+        isNaN(obtained) ||
+        isNaN(total)
+    ){
+
+        document.getElementById("percentageResult")
+        .innerText =
+        "Please enter valid marks.";
+
+        return;
+
+    }
+
+    let result =
+        (obtained / total) * 100;
+
+    document.getElementById("percentageResult")
+    .innerText =
+        result.toFixed(2) + "%";
+
+}
+
+
+/* =========================
+   CGPA
+========================= */
+
+function calculateCGPA(){
+
+    let cgpa =
+        Number(document.getElementById("cgpa").value);
+
+    if(
+        cgpa <= 0 ||
+        cgpa > 10
+    ){
+
+        document.getElementById("cgpaResult")
+        .innerText =
+        "Enter CGPA between 0 and 10.";
+
+        return;
+
+    }
+
+    let percentage =
+        cgpa * 9.5;
+
+    document.getElementById("cgpaResult")
+    .innerText =
+        percentage.toFixed(2) + "%";
+
+}
+
+
+/* =========================
+   MARKS
+========================= */
+
+function calculateMarks(){
+
+    let text =
+        document.getElementById("marks").value;
+
+    let numbers =
+        text
+        .split(",")
+        .map(Number)
+        .filter(n => !isNaN(n));
+
+    if(numbers.length === 0){
+
+        document.getElementById("marksResult")
+        .innerText =
+        "Enter marks like 70,80,65.";
+
+        return;
+
+    }
+
+    let total =
+        numbers.reduce(
+            (a,b) => a+b,
+            0
+        );
+
+    let average =
+        total / numbers.length;
+
+    document.getElementById("marksResult")
+    .innerText =
+        "Total: " +
+        total +
+        " | Average: " +
+        average.toFixed(2);
+
+}
+
+
+/* =========================
+   AGE
+========================= */
+
+function calculateAge(){
+
+    let value =
+        document.getElementById("dob").value;
+
+    if(!value){
+
+        document.getElementById("ageResult")
+        .innerText =
+        "Please select your date of birth.";
+
+        return;
+
+    }
+
+    let dob =
+        new Date(value);
+
+    let today =
+        new Date();
+
+    let age =
+        today.getFullYear()
+        -
+        dob.getFullYear();
+
+    let month =
+        today.getMonth()
+        -
+        dob.getMonth();
+
+    if(
+        month < 0 ||
+        (
+            month === 0 &&
+            today.getDate() < dob.getDate()
+        )
+    ){
+
+        age--;
+
+    }
+
+    document.getElementById("ageResult")
+    .innerText =
+        "You are " +
+        age +
+        " years old.";
+
+}
+
+
+/* =========================
+   WORD COUNTER
+========================= */
+
+function countWords(){
+
+    let text =
+        document.getElementById("text").value.trim();
+
+    if(!text){
+
+        document.getElementById("wordResult")
+        .innerText =
+        "Words: 0 | Characters: 0";
+
+        return;
+
+    }
+
+    let words =
+        text.split(/\s+/).length;
+
+    let characters =
+        text.length;
+
+    document.getElementById("wordResult")
+    .innerText =
+        "Words: " +
+        words +
+        " | Characters: " +
+        characters;
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+let time = 25 * 60;
+
+let timerInterval = null;
+
+
+function updateTimer(){
+
+    let minutes =
+        Math.floor(time / 60);
+
+    let seconds =
+        time % 60;
+
+    seconds =
+        seconds < 10
+        ? "0" + seconds
+        : seconds;
+
+    document.getElementById("timer")
+    .innerText =
+        minutes + ":" + seconds;
+
+}
+
+
+function startTimer(){
+
+    if(timerInterval)
+        return;
+
+    timerInterval =
+        setInterval(function(){
+
+            if(time <= 0){
+
+                clearInterval(timerInterval);
+
+                timerInterval = null;
+
+                alert(
+                    "Study session complete! 🎉"
+                );
+
+                return;
+
+            }
+
+            time--;
+
+            updateTimer();
+
+        },1000);
+
+}
+
+
+function resetTimer(){
+
+    clearInterval(timerInterval);
+
+    timerInterval = null;
+
+    time = 25 * 60;
+
+    updateTimer();
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearFields(ids,resultId){
+
+    ids.forEach(function(id){
+
+        document.getElementById(id).value = "";
+
+    });
+
+    document.getElementById(resultId)
+    .innerText = "";
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    let button =
+        document.getElementById("darkBtn");
+
+    if(document.body.classList.contains("dark")){
+
+        button.innerText = "☀️";
+
+    }else{
+
+        button.innerText = "🌙";
+
+    }
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchTools(){
+
+    let search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    let tools =
+        document.querySelectorAll(".tool");
+
+    tools.forEach(function(tool){
+
+        let content =
+            tool.innerText.toLowerCase();
+
+        if(content.includes(search)){
+
+            tool.style.display = "";
+
+        }else{
+
+            tool.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterTools(category,button){
+
+    let tools =
+        document.querySelectorAll(".tool");
+
+    let buttons =
+        document.querySelectorAll(".category");
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+
+    tools.forEach(function(tool){
+
+        if(
+            category === "all" ||
+            tool.classList.contains(category)
+        ){
+
+            tool.style.display = "";
+
+        }else{
+
+            tool.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
