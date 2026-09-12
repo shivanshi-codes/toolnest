@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
 <meta name="google-site-verification" content="Vfb41xoUWAmLyRd4w-G8H7I7kV7TIhz0OV1XBVmJxPw" />
 <meta charset="UTF-8">
 
@@ -712,7 +712,39 @@ body.dark .badge{
 
         </div>
 
+<!-- SALARY CALCULATOR -->
 
+<div class="card tool calculator">
+
+    <div class="icon">💰</div>
+
+    <h2>Salary Calculator</h2>
+
+    <p>
+        Calculate your yearly salary from your monthly salary.
+    </p>
+
+    <input
+        id="monthlySalary"
+        type="number"
+        placeholder="Monthly Salary ₹">
+
+    <button onclick="calculateSalary()">
+        Calculate
+    </button>
+
+    <button
+        class="clear"
+        onclick="clearFields(['monthlySalary'],'salaryResult')">
+        Clear
+    </button>
+
+    <div
+        class="result"
+        id="salaryResult">
+    </div>
+
+</div>
 
         <!-- AGE -->
 
@@ -1043,7 +1075,29 @@ function percentage(){
 /* =========================
    CGPA
 ========================= */
+function calculateSalary(){
 
+    let monthly =
+        Number(document.getElementById("monthlySalary").value);
+
+    if(monthly <= 0){
+
+        document.getElementById("salaryResult")
+        .innerText =
+        "Please enter a valid salary.";
+
+        return;
+
+    }
+
+    let yearly = monthly * 12;
+
+    document.getElementById("salaryResult")
+    .innerText =
+        "Yearly Salary: ₹" +
+        yearly.toLocaleString("en-IN");
+
+}
 function calculateCGPA(){
 
     let cgpa =
