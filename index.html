@@ -781,6 +781,44 @@ body.dark .badge{
     </div>
 
 </div>
+<!-- BMI CALCULATOR -->
+
+<div class="card tool calculator">
+
+    <div class="icon">⚖️</div>
+
+    <h2>BMI Calculator</h2>
+
+    <p>
+        Calculate your Body Mass Index using your height and weight.
+    </p>
+
+    <input
+        id="weight"
+        type="number"
+        placeholder="Weight (kg)">
+
+    <input
+        id="height"
+        type="number"
+        placeholder="Height (cm)">
+
+    <button onclick="calculateBMI()">
+        Calculate BMI
+    </button>
+
+    <button
+        class="clear"
+        onclick="clearFields(['weight','height'],'bmiResult')">
+        Clear
+    </button>
+
+    <div
+        class="result"
+        id="bmiResult">
+    </div>
+
+</div>
         <!-- AGE -->
 
         <div class="card tool utility">
