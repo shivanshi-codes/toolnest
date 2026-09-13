@@ -106,6 +106,7 @@ nav a:hover{
     background:white;
     text-align:center;
     padding:80px 20px 70px;
+        animation: heroFade 1s ease;
 }
 
 .badge{
@@ -238,7 +239,11 @@ nav a:hover{
 }
 
 .card:hover{
-    transform:translateY(-4px);
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
 }
 
 .icon{
@@ -475,7 +480,19 @@ body.dark .badge{
     }
 
 }
+@keyframes heroFade{
 
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
 </style>
 
 </head>
@@ -529,13 +546,13 @@ body.dark .badge{
     </div>
 
     <h1>
-        Useful Tools for
-        <span>Students</span>
+        Free Online
+        <span>Calculators & Tools</span>
     </h1>
 
     <p>
-        Calculate, study and work smarter with simple
-        free online tools. No registration required.
+        Calculate your percentage, CGPA, marks, age, BMI, salary and more
+        with simple, fast and free online tools. No registration required.
     </p>
 
     <a href="#tools" class="explore">
@@ -543,9 +560,6 @@ body.dark .badge{
     </a>
 
 </section>
-
-
-
 <!-- =========================
      SEARCH
 ========================= -->
