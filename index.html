@@ -6,12 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ToolNest - Free Online Student Tools</title>
-
-<meta name="description"
+<title>ToolNest - Free Online Calculators & Student Tools</title>
+<meta name="description" content="ToolNest offers free online calculators and useful student tools including percentage, CGPA, marks, age, BMI, salary and days calculators.">
 content="ToolNest offers free online calculators and productivity tools for students including percentage, CGPA, marks, age, word counter and study timer.">
 
-<meta name="keywords"
+<meta name="keywords" content="percentage calculator, CGPA calculator, marks calculator, age calculator, BMI calculator, salary calculator, days calculator, student tools, free online calculators">
 content="percentage calculator, CGPA calculator, marks calculator, age calculator, word counter, study timer, student tools">
 
 <style>
@@ -62,14 +61,23 @@ header{
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
     font-size:27px;
     font-weight:bold;
 }
 
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
 .logo span{
-    font-size:13px;
-    color:#777;
-    margin-left:5px;
+    font-size:27px;
+    color:#2563eb;
+    margin-left:0;
 }
 
 nav a{
@@ -480,12 +488,14 @@ body.dark .badge{
      HEADER
 ========================= -->
 
-<header>
 
-    <div class="logo">
-        ToolNest
-        <span>India</span>
-    </div>
+
+  <header> 
+     <div class="logo">
+    <img src="logo.png" alt="ToolNest Logo">
+    <span>ToolNest</span>
+</div>
+
 
     <nav>
 
@@ -1515,7 +1525,8 @@ function searchTools(){
    CATEGORY FILTER
 ========================= */
 
-function filterTools(category,button){
+function filterTools(category,button)
+{
 
     let tools =
         document.querySelectorAll(".tool");
