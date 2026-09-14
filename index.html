@@ -859,8 +859,54 @@ body.dark .badge{
         class="result"
         id="bmiResult">
     </div>
+    </div>
+
+<!-- EMI CALCULATOR -->
+
+<div class="card tool calculator">
+
+    <div class="icon">💳</div>
+
+    <h2>EMI Calculator</h2>
+
+    <p>
+        Calculate your monthly loan EMI easily.
+    </p>
+
+    <input
+        id="loanAmount"
+        type="number"
+        placeholder="Loan Amount ₹">
+
+    <input
+        id="interestRate"
+        type="number"
+        step="0.01"
+        placeholder="Interest Rate (%)">
+
+    <input
+        id="loanYears"
+        type="number"
+        placeholder="Loan Tenure (Years)">
+
+    <button onclick="calculateEMI()">
+        Calculate EMI
+    </button>
+
+    <button
+        class="clear"
+        onclick="clearFields(['loanAmount','interestRate','loanYears'],'emiResult')">
+        Clear
+    </button>
+
+    <div
+        class="result"
+        id="emiResult">
+    </div>
+
 
 </div>
+
         <!-- AGE -->
 
         <div class="card tool utility">
@@ -1593,6 +1639,53 @@ function filterTools(category,button)
     });
 
 }
+
+function calculateEMI(){
+
+    let loan =
+        Number(document.getElementById("loanAmount").value);
+
+    let rate =
+        Number(document.getElementById("interestRate").value);
+
+    let years =
+        Number(document.getElementById("loanYears").value);
+
+    if(loan <= 0 || rate < 0 || years <= 0){
+
+        document.getElementById("emiResult").innerText =
+        "Please enter valid loan details.";
+
+        return;
+    }
+
+    let monthlyRate =
+        rate / 12 / 100;
+
+    let months =
+        years * 12;
+
+    let emi;
+
+    if(monthlyRate === 0){
+
+        emi = loan / months;
+
+    }else{
+
+        emi =
+        loan *
+        monthlyRate *
+        Math.pow(1 + monthlyRate, months) /
+        (Math.pow(1 + monthlyRate, months) - 1);
+    }
+
+    document.getElementById("emiResult").innerText =
+        "Monthly EMI: ₹" +
+        emi.toFixed(2);
+
+}
+
 function calculateBMI(){
 
     let weight =
@@ -1609,6 +1702,7 @@ function calculateBMI(){
 
         return;
     }
+
 
     let heightMeters = height / 100;
 
