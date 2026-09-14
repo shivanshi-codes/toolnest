@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivanshi-codes.github.io/toolnest/sitemap.xml
